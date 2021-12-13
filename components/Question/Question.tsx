@@ -16,12 +16,12 @@ interface QuestionProps {
 
 const Question: React.FC<QuestionProps> = ({question, answer, setAns, hasError}) => {
     let elementType: JSX.Element | null = null;
-    useEffect(() => {
+    //useEffect(() => {
         if (question.range) {
             const max = question.range.max;
             const min = question.range.min;
             setAns({...answer, answer: Math.round((min+max)/2).toString()});
-            const [value, setValue] = useState(Math.round((min+max)/2));
+            const [value, setValue] = useState<number>(Math.round((min+max)/2));
             let oldValue : number;
             elementType = <Slider max={max}
                                   min={min}
@@ -44,7 +44,7 @@ const Question: React.FC<QuestionProps> = ({question, answer, setAns, hasError})
                                   options={question.options}/>
         }
         else {
-            const [value, setValue] = useState(question.options[0].answer);
+            const [value, setValue] = useState<string>(question.options[0].answer);
             setAns({...answer, answer: question.options[0].answer});
             elementType = <Select options={question.options} hasError={hasError}
                                   value={value}
@@ -53,7 +53,7 @@ const Question: React.FC<QuestionProps> = ({question, answer, setAns, hasError})
                                       setAns({...answer, answer: e.target.value as string});
                                   }}/>;
         }
-    }, [question]);
+    //}, [question]);
     return (
         <Box sx={{}}>
             {elementType}

@@ -10,7 +10,6 @@ import {THEME} from "../styles/theme/theme";
 
 function MyApp({Component, pageProps, router}: AppProps) {
     console.warn = () => {};
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     return (
             <ThemeProvider theme={THEME}>
                 <Layout>
