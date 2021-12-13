@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import axios from "axios";
+import {instance as axios} from "../axios";
 import {getAllDiseases, getQuestions, getAllCategories, getResults, sendAnswers, getStatistics} from "../api";
 import {
     AnswerType,
