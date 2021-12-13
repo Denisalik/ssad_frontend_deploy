@@ -1,5 +1,5 @@
 const urls = {
-    HOST: "http://18.216.235.168",
+    HOST: "https://18.216.251.167",
     mappings: {
         API: "api",
         RISKS: "risks",
